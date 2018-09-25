@@ -6,7 +6,7 @@ var Enemy = function(x,y, speed) {
     this.sprite = 'images/enemy-bug.png';
     this.x = x;
     this.y = y;
-    this.speed = speed;
+    //this.speed = speed;
     this.height = 65;
     this.width = 95;
     this.collision = false;
@@ -18,7 +18,7 @@ Enemy.prototype.update = function(dt) {
     // any movement is multiplied by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
-  this.x += 150 *dt;
+  this.x += 100 *dt;
   
   // each bug resets and goes back to the starting position when it
     // reaches the end of the canvas
@@ -47,20 +47,20 @@ Enemy.prototype.update = function(dt) {
   }*/
 
   
-  //collision logic
+ //collision logic
   if (collision(player.x, player.y, player.width, player.height, this.x, this.y, this.width, this.height)){
     this.collision = true;
    //reset player position 
     if (player) {
       player.x = 202;
       player.y = 400;
-    } else {
+    } 
+  }
+    else {
     this.collision = false;
   }
 }
 
-
-};
 
 // Draws the enemy on the screen, required method for game
 Enemy.prototype.render = function() {
@@ -131,7 +131,7 @@ document.addEventListener('keyup', function(e) {
 
 //array of bugs
 
-const enemyPosition = [55, 140, 100];
+const enemyPosition = [55, 140, 200];
 const player = new Player(202, 404, 'images/char-pink-girl.png');
 
 let allEnemies = enemyPosition.map((y, index)=> {
@@ -152,6 +152,6 @@ function reset(){
 //https://stackoverflow.com/questions/2440377/javascript-collision-detection
 function collision(px, py, pw, ph, ex, ey, ew, eh) {
   
-  return (Math.abs(px -ex)*2 <pw +ew) && (Math.abs(py -ex)*2 < ph + eh);
+  return (Math.abs(px -ex)*2 <pw +ew) && (Math.abs(py -ey)*2 < ph + eh);
 }
 
