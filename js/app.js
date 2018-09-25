@@ -1,7 +1,10 @@
 // Enemies our player must avoid
-var Enemy = function() {
-   
+var Enemy = function(x,y) {
+    this.x = x;
+    this.y = y;
     this.sprite = 'images/enemy-bug.png';
+    this.height = 65;
+    this.width = 95;
 };
 
 
@@ -15,9 +18,12 @@ Enemy.prototype.render = function() {
 };
 
 //---HERO
-var Player = function() {
-   
-    this.sprite = 'images/char-pink-girl.png';
+var Player = function(x,y, sprite) {
+    this.x = x;
+    this.y = y;
+    this.sprite = sprite;
+    this.height = 75;
+    this.width = 65;
 };
 
 
@@ -48,5 +54,6 @@ document.addEventListener('keyup', function(e) {
 });
 
 
-const player = new Player();
+const enemyPosition = [55, 140, 230];
+const player = new Player(202, 404, 'images/char-pink-girl.png');
 const allEnemies = [];
