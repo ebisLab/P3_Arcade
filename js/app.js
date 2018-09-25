@@ -9,7 +9,7 @@ var Enemy = function(x,y) {
 
 
 Enemy.prototype.update = function(dt) {
-    this.x += 150
+    this.x += 150 *dt;
 };
 
 
