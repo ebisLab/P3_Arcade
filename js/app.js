@@ -149,6 +149,7 @@ function reset(){
 }
 
 //Logic provided by @LLoan from Slack
+//https://stackoverflow.com/questions/2440377/javascript-collision-detection
 function collision(px, py, pw, ph, ex, ey, ew, eh) {
   
   return (Math.abs(px -ex)*2 <pw +ew) && (Math.abs(py -ex)*2 < ph + eh);
