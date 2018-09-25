@@ -131,7 +131,7 @@ document.addEventListener('keyup', function(e) {
 
 //array of bugs
 
-const enemyPosition = [55, 140, 200];
+const enemyPosition = [55, 140, 220];
 const player = new Player(202, 404, 'images/char-pink-girl.png');
 
 let allEnemies = enemyPosition.map((y, index)=> {
