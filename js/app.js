@@ -36,7 +36,22 @@ Player.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
-
+Player.prototype.handleInput = function(direction) {
+  //boundary
+  const horizontal = 101;
+    vertical = 85;
+  
+   if (direction === 'left' && this.x - horizontal >= 0 ){
+     this.x -= horizontal;
+   } else if (direction === 'right' && this.x + horizontal < ctx.canvas.width){
+     this.x += horizontal;
+     
+   } else if (direction === 'down' && this.y + vertical < ctx.canvas.height -200  ){
+     this.y += vertical;
+   } else if (direction === 'up' && this.y - vertical > 0 - player.height){
+     this.y -= vertical;
+   }
+};
 
 
 
@@ -56,4 +71,6 @@ document.addEventListener('keyup', function(e) {
 
 const enemyPosition = [55, 140, 230];
 const player = new Player(202, 404, 'images/char-pink-girl.png');
-const allEnemies = [];
+const allEnemies = enemyPosition.map((y, index)=> {
+  return new Enemy((-200 *(index +1)), y); //enemy random
+});
